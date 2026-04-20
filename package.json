@@ -1,0 +1,28 @@
+{
+	"name": "subvisual-ethui",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "biome check .",
+		"format": "biome check --fix ."
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.6",
+		"@astrojs/react": "^4.4.2",
+		"@tailwindcss/vite": "^4.2.1",
+		"astro": "^5.17.1",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"tailwindcss": "^4.2.1",
+		"typescript": "^5.9.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.10",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3"
+	}
+}

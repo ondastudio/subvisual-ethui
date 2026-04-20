@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: "Colfax";
+	src: url("/fonts/Colfax-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Colfax";
+	src: url("/fonts/Colfax-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Acta";
+	src: url("/fonts/Acta-Book.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	/* Fonts */
+	--font-body: "Colfax", system-ui, sans-serif;
+	--font-heading: "Acta", Georgia, serif;
+
+	/* Colors */
+	--color-dark: #111111;
+	--color-white: #ffffff;
+	--color-muted: #717087;
+	--color-blue-default: #2b6cff;
+	--color-blue-hover: #0a46c3;
+	--color-blue-25: #f9fcff;
+	--color-purple-default: #8b5cf6;
+	--color-purple-hover: #7c30f7;
+	--color-indigo-default: #4f46e5;
+	--color-indigo-hover: #24248b;
+	--color-border-secondary: #e5e7eb;
+	--color-surface-page: #f7f7f8;
+	--color-border-inverted: #eeedf1;
+
+	/* Type scale — mobile first, overridden at lg below */
+	--text-h1: 2.5rem;
+	--text-h1--line-height: 1.1;
+	--tracking-h1: -0.05rem;
+
+	--text-h2: 2rem;
+	--text-h2--line-height: 2.2rem;
+	--tracking-h2: -0.04rem;
+
+	--text-h3: 1.75rem;
+	--text-h3--line-height: 2.1rem;
+	--tracking-h3: -0.035rem;
+
+	--text-h4: 1.5rem;
+	--text-h4--line-height: 1.8rem;
+	--tracking-h4: -0.03rem;
+
+	--text-h5: 1.25rem;
+	--text-h5--line-height: 1.5rem;
+	--tracking-h5: -0.0125rem;
+
+	--text-body-lg: 1.25rem;
+	--text-body-lg--line-height: 1.5rem;
+	--tracking-body-lg: -0.025rem;
+
+	--text-body-md: 1rem;
+	--leading-body-md: 1.5rem;
+
+	--text-body-sm: 0.875rem;
+	--text-body-sm--line-height: 1.2;
+
+	--text-body-xsm: 0.75rem;
+	--text-body-xsm--line-height: 0.9rem;
+
+	/* Radii */
+	--radius-pill: 2.75rem;
+	--radius-navbar: 9999px;
+
+	/* Animation */
+	--animate-slide-up-in: slide-up-in 1s ease-out both;
+}
+
+/* Desktop type scale overrides */
+@media (min-width: 1024px) {
+	:root {
+		--text-h1: 4rem;
+		--text-h1--line-height: 1;
+		--tracking-h1: -0.08rem;
+
+		--text-h2: 3rem;
+		--text-h2--line-height: 3.3rem;
+		--tracking-h2: -0.06rem;
+
+		--text-h3: 2.25rem;
+		--text-h3--line-height: 2.5rem;
+		--tracking-h3: -0.045rem;
+
+		--text-h4: 1.75rem;
+		--text-h4--line-height: 2.1rem;
+		--tracking-h4: -0.035rem;
+
+		--text-h5: 1.5rem;
+		--text-h5--line-height: 1.8rem;
+		--tracking-h5: -0.015rem;
+	}
+}
+
+@keyframes slide-up-in {
+	from {
+		transform: translateY(100vh);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+html,
+body {
+	font-family: var(--font-body);
+	color: var(--color-dark);
+}
+
+@utility link {
+	color: var(--color-blue-default);
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	font-weight: 400;
+	text-shadow: 0 0 0 transparent;
+	transition: text-shadow 200ms ease;
+
+	&:hover {
+		text-shadow: 0.03em 0 0 currentColor;
+	}
+}
+
+@utility link-purple {
+	color: var(--color-purple-default);
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	font-weight: 400;
+	text-shadow: 0 0 0 transparent;
+	transition: text-shadow 200ms ease;
+
+	&:hover {
+		text-shadow: 0.03em 0 0 currentColor;
+	}
+}
+
+@utility link-secondary {
+	color: var(--color-dark);
+	font-weight: 400;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-color: transparent;
+	text-shadow: 0 0 0 transparent;
+	transition:
+		color 200ms ease,
+		text-decoration-color 200ms ease,
+		text-shadow 200ms ease;
+
+	&:hover {
+		color: var(--color-blue-default);
+		text-shadow: 0.03em 0 0 currentColor;
+		text-decoration-color: var(--color-blue-default);
+	}
+}
+
+@utility link-inverted {
+	color: var(--color-white);
+	font-weight: 400;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-color: transparent;
+	text-shadow: 0 0 0 transparent;
+	transition:
+		text-decoration-color 200ms ease,
+		text-shadow 200ms ease;
+
+	&:hover {
+		text-shadow: 0.03em 0 0 currentColor;
+		text-decoration-color: var(--color-white);
+	}
+}
+
+@utility link-disabled {
+	color: var(--color-muted);
+	text-decoration-line: underline;
+	font-weight: 400;
+	pointer-events: none;
+}
+
+@utility scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
