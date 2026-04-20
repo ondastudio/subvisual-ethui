@@ -12,6 +12,13 @@
 			"enabled": true
 		}
 	},
+	"linter": {
+		"rules": {
+			"suspicious": {
+				"noArrayIndexKey": "off"
+			}
+		}
+	},
 	"overrides": [
 		{
 			"includes": ["**/*.astro"],
@@ -19,7 +26,7 @@
 				"rules": {
 					"correctness": {
 						"noUnusedImports": "off",
-					"noUnusedVariables": "off"
+						"noUnusedVariables": "off"
 					}
 				}
 			}
