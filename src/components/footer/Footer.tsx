@@ -1,13 +1,6 @@
-import compete2030_1 from "../assets/compete2030-1.png";
-import compete2030_2 from "../assets/compete2030-2.png";
-import compete2030_3 from "../assets/compete2030-3.png";
-import dribbbleSelectBadge from "../assets/dribbble-select-badge.svg";
-import arrowForwardIcon from "../assets/icons/arrow-forward.svg";
-import norte2020_1 from "../assets/norte2020-1.png";
-import norte2020_2 from "../assets/norte2020-2.png";
-import norte2020_3 from "../assets/norte2020-3.png";
-import norte2020_4 from "../assets/norte2020-4.png";
-import Link from "./Link";
+import arrowForwardIcon from "../../assets/icons/arrow-forward.svg";
+import Link from "../Link";
+import { FundingLogos } from "./FundingLogos";
 
 const socialLinks = [
 	{ label: "Linkedin", href: "https://linkedin.com/company/wearesubvisual" },
@@ -36,16 +29,12 @@ const themeHoverColors: Record<string, string> = {
 const MAILCHIMP_URL =
 	"https://subvisual.us5.list-manage.com/subscribe/post?u=79f7816bac08905f81c1a8689&id=f8b8f31221";
 const MAILCHIMP_HONEYPOT = "b_79f7816bac08905f81c1a8689_f8b8f31221";
-const COMPETE_2030_URL =
-	"https://drive.google.com/file/d/1Mh6DgXLfEEvk7d6vz3OvBGlJCHbvJlKF/view?usp=sharing";
-const NORTE_2020_URL =
-	"https://drive.google.com/file/d/1O017VWq7ztHDjBNKx4H3PR9bK4Pxi2gP/view";
 
 export default function Footer({ theme = "blue" }: FooterProps) {
 	const bgColor = themeColors[theme];
 	const submitBg = `${themeColors[theme]} ${themeHoverColors[theme]}`;
 	return (
-		<footer className="max-w-7xl mx-auto w-full px-5 lg:px-4">
+		<footer className="max-w-[1920px] mx-auto w-full px-5 lg:px-4">
 			<div
 				id="footer-blue-box"
 				className={`mt-0.5 ${bgColor} rounded-2xl px-6 lg:px-8 pt-10 lg:pt-15 pb-10 lg:pb-15 overflow-hidden`}
@@ -111,10 +100,20 @@ export default function Footer({ theme = "blue" }: FooterProps) {
 									<span className="font-body font-medium text-body-md text-white">
 										Legal
 									</span>
-									<Link href="/privacy" variant="inverted">
+									<Link
+										href="https://subvisual.com/privacy"
+										variant="inverted"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
 										Privacy Policy
 									</Link>
-									<Link href="/terms" variant="inverted">
+									<Link
+										href="https://subvisual.com/terms"
+										variant="inverted"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
 										Terms
 									</Link>
 								</div>
@@ -165,133 +164,15 @@ export default function Footer({ theme = "blue" }: FooterProps) {
 								</form>
 
 								{/* Funding logos (desktop) */}
-								<div className="hidden md:flex flex-col gap-6">
-									<a
-										href={COMPETE_2030_URL}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<div className="flex flex-wrap items-center gap-6">
-											<img
-												src={compete2030_1.src}
-												alt="Compete 2030"
-												className="h-8"
-											/>
-											<img
-												src={compete2030_2.src}
-												alt="Portugal 2030"
-												className="h-6"
-											/>
-											<img
-												src={compete2030_3.src}
-												alt="Cofinanciado pela União Europeia"
-												className="h-6"
-											/>
-										</div>
-									</a>
-									<a
-										href={NORTE_2020_URL}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<div className="flex flex-wrap items-center gap-6">
-											<img
-												src={norte2020_1.src}
-												alt="Norte 2020"
-												className="h-5"
-											/>
-											<img
-												src={norte2020_2.src}
-												alt="Portugal 2020"
-												className="h-5"
-											/>
-											<img
-												src={norte2020_3.src}
-												alt="União Europeia - Fundos Estruturais"
-												className="h-6"
-											/>
-											<img
-												src={norte2020_4.src}
-												alt="União Europeia - Fundo Europeu de Desenvolvimento Regional"
-												className="h-6"
-											/>
-										</div>
-									</a>
-									<a
-										href="https://dribbble.com/design-agency"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<img
-											src={dribbbleSelectBadge.src}
-											alt="Dribbble Select"
-											className="h-8"
-										/>
-									</a>
+								<div className="hidden md:block">
+									<FundingLogos />
 								</div>
 							</div>
 						</div>
 
 						{/* Funding logos (mobile) */}
-						<div className="flex flex-col gap-6 md:hidden">
-							<a
-								href={COMPETE_2030_URL}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<div className="flex flex-wrap items-center gap-6">
-									<img
-										src={compete2030_1.src}
-										alt="Compete 2030"
-										className="h-8"
-									/>
-									<img
-										src={compete2030_2.src}
-										alt="Portugal 2030"
-										className="h-6"
-									/>
-									<img
-										src={compete2030_3.src}
-										alt="Cofinanciado pela União Europeia"
-										className="h-6"
-									/>
-								</div>
-							</a>
-							<a
-								href={NORTE_2020_URL}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<div className="flex flex-wrap items-center gap-6">
-									<img src={norte2020_1.src} alt="Norte 2020" className="h-5" />
-									<img
-										src={norte2020_2.src}
-										alt="Portugal 2020"
-										className="h-5"
-									/>
-									<img
-										src={norte2020_3.src}
-										alt="União Europeia - Fundos Estruturais"
-										className="h-6"
-									/>
-									<img
-										src={norte2020_4.src}
-										alt="União Europeia - Fundo Europeu de Desenvolvimento Regional"
-										className="h-6"
-									/>
-								</div>
-							</a>
-							<a
-								href="https://dribbble.com/subvisual"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									src={dribbbleSelectBadge.src}
-									alt="Dribbble Select"
-									className="h-8"
-								/>
-							</a>
+						<div className="md:hidden">
+							<FundingLogos />
 						</div>
 					</div>
 
