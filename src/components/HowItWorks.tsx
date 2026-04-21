@@ -41,7 +41,7 @@ export default function HowItWorks() {
 	}, []);
 
 	return (
-		<section className="bg-white px-4 py-4">
+		<section className="bg-white py-4">
 			{/* Header */}
 			<div className="flex flex-col items-center gap-10 pb-36 pt-3">
 				<div className="self-start">

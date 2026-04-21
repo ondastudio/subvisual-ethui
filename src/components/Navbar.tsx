@@ -1,14 +1,14 @@
 import { useState } from "react";
-import stablesSymbolSrc from "../assets/stables-symbol.svg";
-import stablesWordmarkSrc from "../assets/stables-wordmark.svg";
-import wordmarkSrc from "../assets/subvisual-logo.svg";
-import symbolSrc from "../assets/subvisual-symbol.svg";
+import stablesSymbolSrc from "../assets/logos/stables-symbol.svg";
+import stablesWordmarkSrc from "../assets/logos/stables-wordmark.svg";
+import wordmarkSrc from "../assets/logos/subvisual-logo.svg";
+import symbolSrc from "../assets/logos/subvisual-symbol.svg";
 import Button from "./Button";
 
 const NAV_LINKS: { label: string; fullLabel?: string; href: string }[] = [
-	{ label: "Product", href: "/product" },
-	{ label: "Venture", href: "/venture" },
-	{ label: "Stables", href: "/stables" },
+	{ label: "Product", href: "https://subvisual.com/product" },
+	{ label: "Venture", href: "https://subvisual.com/venture" },
+	{ label: "Stables", href: "https://subvisual.com/stables" },
 	{ label: "Content", href: "https://content.subvisual.com" },
 	{ label: "Academy", href: "https://jobs.subvisual.com/academy" },
 ];
@@ -70,14 +70,14 @@ export default function Navbar({
 						: "gap-6 lg:gap-7.5"
 				}`}
 			>
-				<a href="/" className="lg:hidden">
+				<a href="https://subvisual.com" className="lg:hidden">
 					<img
 						src={currentSymbol.src}
 						alt="Subvisual"
 						className="h-7 w-auto max-w-none"
 					/>
 				</a>
-				<a href="/" className="hidden lg:block">
+				<a href="https://subvisual.com" className="hidden lg:block">
 					<img
 						src={isPrimary ? currentWordmark.src : currentSymbol.src}
 						alt="Subvisual"

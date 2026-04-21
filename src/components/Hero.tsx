@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import ethuiMonogramSrc from "../assets/ethui-monogram.svg";
+import ethuiMonogramSrc from "../assets/logos/ethui-monogram.svg";
 
 export default function Hero() {
 	const wrapperRef = useRef<HTMLDivElement>(null);
@@ -7,15 +7,15 @@ export default function Hero() {
 	const descRef = useRef<HTMLParagraphElement>(null);
 
 	useEffect(() => {
-		const wrapper = wrapperRef.current;
-		const content = contentRef.current;
-		const desc = descRef.current;
-		if (!wrapper || !content || !desc) return;
-
 		// Distance to scroll: 80vh (first div) + card top/bottom inset (2 * 1rem)
 		const scrollDistance = window.innerHeight * 0.8 + 32;
 
 		function onScroll() {
+			const wrapper = wrapperRef.current;
+			const content = contentRef.current;
+			const desc = descRef.current;
+			if (!wrapper || !content || !desc) return;
+
 			const progress = Math.max(
 				0,
 				Math.min(-wrapper.getBoundingClientRect().top, scrollDistance),

@@ -8,9 +8,8 @@ const IMG_3 =
 	"https://www.figma.com/api/mcp/asset/2bd9e0e2-af76-4789-8cc8-5b0db365896a";
 
 const IMAGES = [IMG_1, IMG_2, IMG_3];
-const IMG_W = 500;
-const IMG_H = 375;
 const PAD = 40;
+const ASPECT = 375 / 500;
 
 export default function EthLisbonScroll() {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -51,21 +50,28 @@ export default function EthLisbonScroll() {
 	}, []);
 
 	const { w, h } = boxSize;
+	const imgW = Math.min(
+		500,
+		Math.max(0, w - PAD * 2),
+		Math.max(0, (h - PAD * 2) / ASPECT),
+	);
+	const imgH = imgW * ASPECT;
+
 	const transforms = [
 		`translate(${PAD}px, ${PAD}px)`,
-		`translate(${Math.max(0, (w - IMG_W) / 2)}px, ${Math.max(0, (h - IMG_H) / 2)}px)`,
-		`translate(${Math.max(0, w - IMG_W - PAD)}px, ${Math.max(0, h - IMG_H - PAD)}px)`,
+		`translate(${Math.max(0, (w - imgW) / 2)}px, ${Math.max(0, (h - imgH) / 2)}px)`,
+		`translate(${Math.max(0, w - imgW - PAD)}px, ${Math.max(0, h - imgH - PAD)}px)`,
 	];
 
 	return (
 		<section
 			ref={containerRef}
-			className="relative px-4 py-4"
+			className="relative"
 			style={{ height: "300vh" }}
 		>
-			<div className="sticky top-4 h-[calc(100vh-2rem)] bg-white rounded-2xl overflow-hidden flex flex-col">
+			<div className="sticky top-4 h-[calc(100vh-7rem)] lg:h-[calc(100vh-8rem)] bg-white rounded-2xl overflow-hidden flex flex-col">
 				{/* Text area */}
-				<div className="flex flex-col gap-0.5 items-start pt-30 pb-15 px-4">
+				<div className="flex flex-col gap-0.5 items-start pb-15 px-4">
 					<div className="bg-dark/10 rounded-2xl px-6 py-4">
 						<span className="text-body-md text-dark leading-none tracking-tight">
 							Milestone
@@ -93,7 +99,7 @@ export default function EthLisbonScroll() {
 					</div>
 				</div>
 
-				{/* Content box — image moves through 3 positions as user scrolls */}
+				{/* Content box */}
 				<div
 					ref={contentBoxRef}
 					className="flex-1 bg-surface-page rounded-2xl overflow-hidden relative mx-4 mb-4"
@@ -101,8 +107,8 @@ export default function EthLisbonScroll() {
 					<div
 						className="absolute rounded-2xl overflow-hidden bg-dark"
 						style={{
-							width: IMG_W,
-							height: IMG_H,
+							width: imgW,
+							height: imgH,
 							transform: w > 0 ? transforms[step] : transforms[0],
 							transition: "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
 						}}

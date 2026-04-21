@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
-const FILESYSTEM_WATCHER_SRC =
-	"https://www.figma.com/api/mcp/asset/39748fe7-ff3d-4d07-9adc-754e8428f473";
+import VideoPlayer from "./VideoPlayer";
 
 const slides = [
 	{
@@ -34,7 +32,7 @@ export default function StoryScroll() {
 	}, []);
 
 	return (
-		<section className="px-20 py-4 bg-white">
+		<section className="py-4 bg-white">
 			<div className="flex gap-2 items-start">
 				{/* Left — sticky, cross-fades between slides */}
 				<div className="sticky top-4 w-[calc(50%-4px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
@@ -50,7 +48,7 @@ export default function StoryScroll() {
 								{slide.label}
 							</span>
 							<h2
-								className="text-h2 tracking-h2 font-body font-normal text-right text-dark"
+								className="text-h2 tracking-h2 font-body font-normal text-right text-dark max-w-xl"
 								style={{ whiteSpace: "pre-line" }}
 							>
 								{slide.heading}
@@ -108,29 +106,7 @@ export default function StoryScroll() {
 
 					{/* Insight — video */}
 					<div className="min-h-screen flex items-center px-10 py-8">
-						<div className="relative w-full rounded-md overflow-hidden">
-							<img
-								src={FILESYSTEM_WATCHER_SRC}
-								alt="ethui filesystem watcher demo"
-								className="w-full object-cover rounded-md"
-							/>
-							<button
-								type="button"
-								className="absolute inset-0 flex items-center justify-center"
-								aria-label="Play video"
-							>
-								<div className="bg-dark rounded-full size-12 flex items-center justify-center">
-									<svg
-										className="size-6 text-white ml-0.5"
-										viewBox="0 0 24 24"
-										fill="currentColor"
-										aria-hidden="true"
-									>
-										<path d="M8 5v14l11-7z" />
-									</svg>
-								</div>
-							</button>
-						</div>
+						<VideoPlayer className="w-full aspect-video rounded-md" />
 					</div>
 				</div>
 			</div>
