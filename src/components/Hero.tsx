@@ -8,7 +8,7 @@ export default function Hero() {
 
 	useEffect(() => {
 		// Distance to scroll: 80vh (first div) + card top/bottom inset (2 * 1rem)
-		const scrollDistance = window.innerHeight * 0.8 + 32;
+		const scrollDistance = window.innerHeight * 0.65 + 32;
 
 		function onScroll() {
 			const wrapper = wrapperRef.current;
@@ -39,24 +39,21 @@ export default function Hero() {
 
 	return (
 		// Wrapper height = sticky section (100vh) + extra scroll distance
-		<div ref={wrapperRef} style={{ height: `calc(100vh + 80vh + 2rem)` }}>
-			<section className="sticky top-0 h-screen p-4 bg-blue-25 overflow-hidden">
+		<div ref={wrapperRef} style={{ height: `calc(100vh + 65vh + 2rem)` }}>
+			<section className="sticky top-0 h-screen p-4 overflow-hidden">
 				<div className="bg-[#0a0a0a] rounded-2xl h-full overflow-hidden">
 					<div ref={contentRef} className="will-change-transform">
 						{/* First screen: ~80vh */}
-						<div className="h-[80vh] flex flex-col items-center justify-center gap-7 px-4">
+						<div className="h-[100dvh] lg:h-screen flex flex-col items-center justify-center gap-7 px-4">
 							<div className="flex items-center gap-7">
 								<img
 									src={ethuiMonogramSrc.src}
 									alt="ethui monogram"
-									className="size-[114px]"
+									className="size-[78px] lg:size-[114px]"
 								/>
 								<p
-									className="font-bold text-white leading-[0.9] tracking-[-0.03em]"
-									style={{
-										fontFamily: "'Source Code Pro', monospace",
-										fontSize: "89.923px",
-									}}
+									className="font-bold text-white leading-[0.9] tracking-[-0.03em] text-[62px] lg:text-[90px]"
+									style={{ fontFamily: "'Source Code Pro', monospace" }}
 								>
 									<span>eth</span>
 									<span style={{ letterSpacing: "-0.8px" }}>u</span>
@@ -64,17 +61,17 @@ export default function Hero() {
 								</p>
 							</div>
 
-							<p className="text-white text-center font-body text-h5 leading-[1.167] tracking-[-0.24px] max-w-[632px]">
+							<p className="text-white text-center font-body text-h5 leading-[1.167] tracking-[-0.24px] max-w-[350px] lg:max-w-[632px]">
 								We built the Ethereum developer tool we wished existed. Then the
 								community showed up.
 							</p>
 						</div>
 
 						{/* Second screen: 100vh, fades in via scroll */}
-						<div className="h-screen flex items-center justify-center px-4">
+						<div className="h-[50vh] flex items-center justify-center px-4">
 							<p
 								ref={descRef}
-								className="text-white text-center font-body text-h5 leading-[1.167] tracking-[-0.24px] max-w-[632px]"
+								className="text-white text-center font-body text-h5 leading-[1.167] tracking-[-0.24px] max-w-[350px] lg:max-w-[632px]"
 								style={{ opacity: 0, transform: "translateY(20px)" }}
 							>
 								ethui is an open-source Ethereum developer toolkit that fills

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import arrowSvg from "../../assets/icons/arrow.svg";
 import VideoPlayer from "../VideoPlayer";
 import { EthuiLogo } from "./EthuiLogo";
@@ -5,10 +6,38 @@ import { FeatureCard } from "./FeatureCard";
 import { IronLogo } from "./IronLogo";
 import { useEthuiScroll } from "./useEthuiScroll";
 
-const IMG_IRON_MARK_0 =
-	"https://www.figma.com/api/mcp/asset/3cf053bc-d2a8-4797-8253-184258288d12";
-const IMG_IRON_WORDMARK_0 =
-	"https://www.figma.com/api/mcp/asset/b03481dc-bc6d-4d17-a508-b4c6380080b3";
+function ScrollRevealFeatureCard({
+	title,
+	body,
+}: {
+	title: string;
+	body: string;
+}) {
+	const ref = useRef<HTMLDivElement>(null);
+	const [visible, setVisible] = useState(false);
+
+	useEffect(() => {
+		const el = ref.current;
+		if (!el) return;
+		const obs = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setVisible(true);
+					obs.disconnect();
+				}
+			},
+			{ threshold: 0.2 },
+		);
+		obs.observe(el);
+		return () => obs.disconnect();
+	}, []);
+
+	return (
+		<div ref={ref}>
+			<FeatureCard title={title} body={body} visible={visible} />
+		</div>
+	);
+}
 
 const slides = [
 	{ label: "Milestone", heading: "Iron → ethui" },
@@ -60,8 +89,9 @@ export default function EthuiScroll() {
 	} = useEthuiScroll();
 
 	return (
-		<section className="py-4 bg-white">
-			<div className="flex gap-2 items-start">
+		<section className="bg-white">
+			{/* Desktop layout */}
+			<div className="hidden lg:flex py-4 gap-2 items-start">
 				{/* Left — sticky, cross-fades between all slides */}
 				<div className="sticky top-4 w-[calc(50%-4px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
 					{slides.map((slide, i) => (
@@ -109,10 +139,10 @@ export default function EthuiScroll() {
 						className="relative"
 						style={{ height: "300vh" }}
 					>
-						<div className="sticky top-0 h-screen flex items-center justify-center px-10 py-8">
-							<div className="flex flex-col items-center gap-8">
+						<div className="sticky top-0 h-screen flex items-center px-10 py-8">
+							<div className="flex flex-col items-start gap-8 w-full">
 								<p
-									className={`text-body-md text-dark leading-[1.25] transition-opacity duration-700 ${
+									className={`text-body-md text-dark leading-[1.25] max-w-xl self-start transition-opacity duration-700 ${
 										showText ? "opacity-100" : "opacity-0"
 									}`}
 								>
@@ -120,10 +150,7 @@ export default function EthuiScroll() {
 									The rebrand to ethui was quick—the name fits better anyway.
 									"eth" plus "ui." It says what it is.
 								</p>
-								<IronLogo
-									markSrc={IMG_IRON_MARK_0}
-									wordmarkSrc={IMG_IRON_WORDMARK_0}
-								/>
+								<IronLogo />
 								<div
 									className={`flex flex-col items-center gap-8 overflow-hidden transition-all duration-700 ${
 										showEthui
@@ -154,7 +181,7 @@ export default function EthuiScroll() {
 
 					{/* Slide 2: Ripping out the framework */}
 					<div className="min-h-screen flex items-center px-10 py-8">
-						<div className="space-y-4 text-body-md text-dark leading-[1.25]">
+						<div className="space-y-4 text-body-md text-dark leading-[1.25] max-w-xl">
 							<p>
 								By v1.13, Material UI was holding ethui back. The team migrated
 								to a shadcn-based component library. Everything got
@@ -180,7 +207,7 @@ export default function EthuiScroll() {
 
 					{/* Slide 3: Block explorer — text */}
 					<div className="min-h-screen flex items-center px-10 py-8">
-						<div className="space-y-4 text-body-md text-dark leading-[1.25]">
+						<div className="space-y-4 text-body-md text-dark leading-[1.25] max-w-xl">
 							<p>
 								The ethui explorer is a local-first Ethereum block explorer
 								purpose-built for Anvil nodes. Unlike Etherscan (live chains
@@ -198,7 +225,10 @@ export default function EthuiScroll() {
 
 					{/* Slide 3: Block explorer — video */}
 					<div className="min-h-screen flex items-center px-10 py-8">
-						<VideoPlayer className="w-full aspect-video rounded-md" />
+						<VideoPlayer
+							src="https://ethui-assets.subvisual.com/Explorer%20walkthrough.mp4"
+							className="w-full aspect-video rounded-md"
+						/>
 					</div>
 
 					{/* Sentinel 3 → 4 (Block Explorer → Stacks) */}
@@ -210,7 +240,7 @@ export default function EthuiScroll() {
 
 					{/* Slide 4: Stacks — text only */}
 					<div className="min-h-screen flex flex-col justify-center gap-8 px-10 py-8">
-						<div className="space-y-4 text-body-md text-dark leading-[1.25]">
+						<div className="space-y-4 text-body-md text-dark leading-[1.25] max-w-xl">
 							<p>
 								ethui Stacks is a self-hosted tool for creating persistent,
 								cloud-based Anvil testnets in one click. Every project at
@@ -229,7 +259,10 @@ export default function EthuiScroll() {
 
 					{/* Stacks — video */}
 					<div className="min-h-screen flex items-center px-10 py-8">
-						<VideoPlayer className="w-full aspect-video rounded-md" />
+						<VideoPlayer
+							src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
+							className="w-full aspect-video rounded-md"
+						/>
 					</div>
 
 					{/* Product stacking cards */}
@@ -261,7 +294,7 @@ export default function EthuiScroll() {
 
 					{/* Slide 7: Business — text */}
 					<div className="min-h-screen flex items-center px-10 py-8">
-						<div className="space-y-4 text-body-md text-dark leading-[1.25]">
+						<div className="space-y-4 text-body-md text-dark leading-[1.25] max-w-xl">
 							<p>
 								ethui isn't a client project. Nobody asked us to build it. It
 								exists because our lead developer hit a wall and decided to fix
@@ -316,6 +349,194 @@ export default function EthuiScroll() {
 								/>
 							))}
 						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* Mobile layout */}
+			<div className="lg:hidden flex flex-col">
+				{/* Iron → ethui */}
+				<div className="flex flex-col gap-18 py-18">
+					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+							Milestone
+						</span>
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark flex items-center gap-4 flex-wrap">
+							Iron
+							<img
+								src={arrowSvg.src}
+								alt="→"
+								className="-rotate-90 h-[0.75em] w-auto align-middle"
+							/>
+							ethui
+						</h2>
+					</div>
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+						<p>
+							The project started as Iron. Then a cease-and-desist landed. The
+							rebrand to ethui was quick—the name fits better anyway. "eth" plus
+							"ui." It says what it is.
+						</p>
+					</div>
+					<div className="flex flex-col items-center md:items-start gap-6 w-full max-w-64 mx-auto md:mx-0">
+						<IronLogo />
+						<img src={arrowSvg.src} alt="" className="self-center" />
+						<EthuiLogo />
+					</div>
+				</div>
+
+				{/* Ripping out the framework */}
+				<div className="flex flex-col gap-18 py-18">
+					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+							Design
+						</span>
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark">
+							Ripping out the framework
+						</h2>
+					</div>
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+						<p>
+							By v1.13, Material UI was holding ethui back. The team migrated to
+							a shadcn-based component library. Everything got cleaner—code, UI,
+							and the developer experience of working on ethui itself.
+							macOS-specific tweaks made it feel genuinely native.
+						</p>
+						<p>This wasn't just cosmetic.</p>
+						<p>
+							Moving away from Material UI meant the team could build new UI
+							components much faster, without being constrained by an existing
+							design system, and accelerate the next phase of the product.
+						</p>
+					</div>
+				</div>
+
+				{/* Block explorer */}
+				<div className="flex flex-col gap-18 py-18">
+					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+							Product
+						</span>
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark">
+							A local-first block explorer for Anvil
+						</h2>
+					</div>
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+						<p>
+							The ethui explorer is a local-first Ethereum block explorer
+							purpose-built for Anvil nodes. Unlike Etherscan (live chains only)
+							or Otterscan (complex setup, read-only), ethui's explorer gives
+							you full read/write contract interaction out of the box.
+						</p>
+						<p>
+							No verification step. No indexing backend. No Sourcify instance.
+							Connect to any Anvil RPC, and your forge compilation outputs are
+							your verification. It also works with any node supporting the
+							ots_* namespace, including Erigon.
+						</p>
+					</div>
+					<VideoPlayer
+						src="https://ethui-assets.subvisual.com/Explorer%20walkthrough.mp4"
+						className="w-full aspect-video rounded-md"
+					/>
+				</div>
+
+				{/* Stacks */}
+				<div className="flex flex-col gap-18 py-18">
+					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+							Product
+						</span>
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark">
+							One-click Ethereum testnets with Stacks
+						</h2>
+					</div>
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+						<p>
+							ethui Stacks is a self-hosted tool for creating persistent,
+							cloud-based Anvil testnets in one click. Every project at
+							Subvisual needed the same thing: an Anvil node, a block explorer,
+							a faucet. Stacks packages that into a single setup.
+						</p>
+						<p>
+							Create a stack, get a persistent remote Anvil instance with a
+							unique chain ID, authenticated RPC URL, and connected explorer.
+							Fork Ethereum mainnet if you want. Share it with your team via a
+							URL. All Anvil cheatcodes work—impersonation, balance setting,
+							snapshots.
+						</p>
+					</div>
+					<VideoPlayer
+						src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
+						className="w-full aspect-video rounded-md"
+					/>
+					<div className="flex flex-col gap-6">
+						{productCards.map((card) => (
+							<ScrollRevealFeatureCard
+								key={card.title}
+								title={card.title}
+								body={card.body}
+							/>
+						))}
+					</div>
+				</div>
+
+				{/* Business */}
+				<div className="flex flex-col gap-18 py-18">
+					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+							Business
+						</span>
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark">
+							What this says about Subvisual
+						</h2>
+					</div>
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+						<p>
+							ethui isn't a client project. Nobody asked us to build it. It
+							exists because our lead developer hit a wall and decided to fix it
+							properly. That's the kind of team we are.
+						</p>
+						<p>
+							When the tools aren't good enough, we build better ones. ethui
+							powers our own workflow on every web3 project—from Quill and Orki
+							to Brazos. Good developer tools should be shared.
+						</p>
+					</div>
+					<div className="flex flex-col gap-4">
+						<blockquote className="text-h3 tracking-h3 font-heading font-normal text-dark">
+							"This is the best thing I've ever built."
+						</blockquote>
+						<div className="flex flex-col gap-0.5">
+							<span className="flex items-center gap-2 text-body-md font-heading text-dark">
+								<span className="size-1.5 rounded-full bg-dark inline-block" />
+								Miguel Palhas
+							</span>
+							<span className="text-body-md font-heading text-muted pl-4">
+								Creator / Lead Dev
+							</span>
+						</div>
+					</div>
+				</div>
+
+				{/* Results */}
+				<div className="flex flex-col gap-18 py-18">
+					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+							Results
+						</span>
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark">
+							What this says about Subvisual
+						</h2>
+					</div>
+					<div className="flex flex-col gap-6">
+						{resultsCards.map((card) => (
+							<ScrollRevealFeatureCard
+								key={card.title}
+								title={card.title}
+								body={card.body}
+							/>
+						))}
 					</div>
 				</div>
 			</div>

@@ -16,7 +16,9 @@ export function FeatureCard({
 			<h3 className="text-h3 tracking-h3 font-body font-normal text-dark">
 				{title}
 			</h3>
-			<p className="text-body-md text-dark leading-[1.25]">{body}</p>
+			<p className="text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+				{body}
+			</p>
 		</div>
 	);
 }

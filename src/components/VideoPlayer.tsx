@@ -4,16 +4,13 @@ import pauseCircleIcon from "../assets/icons/stop_circle.svg";
 
 type VideoPlayerProps = {
 	src?: string;
-	poster?: string;
 	className?: string;
 };
 
 const SAMPLE_VIDEO = "https://media.w3.org/2010/05/sintel/trailer.mp4";
-const SAMPLE_POSTER = "https://media.w3.org/2010/05/sintel/poster.png";
 
 export default function VideoPlayer({
 	src = SAMPLE_VIDEO,
-	poster = SAMPLE_POSTER,
 	className = "",
 }: VideoPlayerProps) {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -38,8 +35,8 @@ export default function VideoPlayer({
 		>
 			<video
 				ref={videoRef}
-				src={src}
-				poster={poster}
+				src={`${src}#t=0.001`}
+				preload="metadata"
 				onPlay={() => setIsPlaying(true)}
 				onPause={() => setIsPlaying(false)}
 				onEnded={() => setIsPlaying(false)}

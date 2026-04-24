@@ -1,15 +1,17 @@
-const IMG_ETHUI_MONOGRAM =
-	"https://www.figma.com/api/mcp/asset/68332fe1-4efb-4800-97c3-27a95029234b";
+import ethuiMonogram from "../../assets/logos/ethui-monogram.svg";
 
 export function EthuiLogo() {
 	return (
-		<div className="flex items-center gap-6">
-			<img src={IMG_ETHUI_MONOGRAM} alt="" className="size-24" />
+		<div className="flex items-center gap-4 lg:gap-6 w-full max-w-64 lg:max-w-[25rem]">
+			<img
+				src={ethuiMonogram.src}
+				alt=""
+				className="size-[4.5rem] lg:size-24 shrink-0"
+			/>
 			<span
-				className="font-bold leading-none text-dark"
+				className="font-bold leading-none text-dark text-[3.5rem] lg:text-[4.5rem]"
 				style={{
 					fontFamily: "'Source Code Pro', monospace",
-					fontSize: "4.5rem",
 					letterSpacing: "-0.14rem",
 				}}
 			>

@@ -1,16 +1,11 @@
-export function IronLogo({
-	markSrc,
-	wordmarkSrc,
-}: {
-	markSrc: string;
-	wordmarkSrc: string;
-}) {
+import ironLogo from "../../assets/logos/iron-logo.svg";
+
+export function IronLogo() {
 	return (
-		<div className="flex items-center gap-8">
-			<div className="size-25 bg-[#161616] rounded-full flex items-center justify-center shrink-0">
-				<img src={markSrc} alt="" className="size-16" />
-			</div>
-			<img src={wordmarkSrc} alt="IronWallet" className="h-11 w-auto" />
-		</div>
+		<img
+			src={ironLogo.src}
+			alt="IronWallet"
+			className="w-full max-w-[25rem] h-auto"
+		/>
 	);
 }

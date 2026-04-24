@@ -64,22 +64,22 @@ export default function FAQs({
 				{items.map((faq) => (
 					<div
 						key={faq.number}
-						className={`border-t ${borderColor} grid grid-cols-12`}
+						className={`border-t ${borderColor} grid grid-cols-[2rem_1fr] lg:grid-cols-12`}
 					>
-						<div className="col-span-4 pt-8 lg:pt-12 pb-10">
+						<div className="pt-4 pb-10 lg:col-span-4">
 							<span className="font-body text-body-xsm uppercase text-dark">
 								{faq.number}
 							</span>
 						</div>
 
 						<div
-							className={`col-span-8 border-l ${borderColor} h-auto lg:h-[200px] flex flex-col justify-between gap-4 lg:gap-0 pt-6 lg:pt-10 pb-6 lg:pb-0 px-5 lg:px-10`}
+							className={`border-l ${borderColor} h-auto lg:h-[200px] flex flex-col justify-between gap-4 lg:gap-0 pt-4 lg:pt-10 pb-6 lg:pb-0 px-5 lg:px-10 lg:col-span-8`}
 						>
 							<p className="font-heading text-h3 tracking-h3 text-dark">
 								{faq.question}
 							</p>
 							{faq.answer ? (
-								<p className="font-body text-body-md leading-body-md text-dark whitespace-pre-line max-w-[638px]">
+								<p className="font-body text-body-md leading-body-md text-dark whitespace-pre-line max-w-[560px] lg:max-w-[638px]">
 									{faq.answer}
 								</p>
 							) : (

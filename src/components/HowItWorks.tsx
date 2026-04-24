@@ -43,18 +43,18 @@ export default function HowItWorks() {
 	return (
 		<section className="bg-white py-4">
 			{/* Header */}
-			<div className="flex flex-col items-center gap-10 pb-36 pt-3">
+			<div className="flex flex-col items-center gap-10 pb-10 lg:pb-36 pt-3">
 				<div className="self-start">
 					<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 						Technical
 					</span>
 				</div>
 
-				<div className="flex flex-col gap-10 items-center text-center max-w-2xl w-full">
+				<div className="flex flex-col gap-6 lg:gap-10 items-center text-center max-w-2xl w-full">
 					<h2 className="text-h2 tracking-h2 font-body font-normal text-dark w-full">
 						How it actually works
 					</h2>
-					<div className="text-body-md text-dark leading-[1.25] space-y-4">
+					<div className="text-body-md text-dark leading-[1.25] space-y-4 md:max-w-[560px]">
 						<p>
 							ethui is built on a Rust backend paired with a React frontend,
 							using Tauri for desktop app support. The business logic is powered
@@ -78,15 +78,15 @@ export default function HowItWorks() {
 			</div>
 
 			{/* Cards */}
-			<div className="bg-surface-page rounded-2xl flex items-center justify-center py-36 px-10">
-				<div className="flex gap-6 w-full max-w-5xl">
+			<div className="bg-surface-page rounded-2xl flex items-center justify-center py-10 px-6 lg:py-36 lg:px-10">
+				<div className="flex flex-col lg:flex-row gap-6 w-full max-w-5xl">
 					{cards.map((card, i) => (
 						<div
 							key={i}
 							ref={(el) => {
 								cardsRef.current[i] = el;
 							}}
-							className="flex-1 bg-dark rounded-2xl p-6 flex flex-col justify-between min-h-80"
+							className="flex-1 bg-dark rounded-2xl p-6 flex flex-col justify-between min-h-72"
 							style={{
 								opacity: 0,
 								transform: "translateY(24px)",
@@ -99,7 +99,7 @@ export default function HowItWorks() {
 							>
 								{card.title}
 							</h3>
-							<p className="text-body-md text-white/80 leading-[1.2]">
+							<p className="text-body-md text-white/80 leading-[1.2] md:max-w-[560px]">
 								{card.body}
 							</p>
 						</div>
