@@ -46,6 +46,8 @@ type FAQsProps = {
 
 export type { FAQItem };
 
+const DARKER_QUESTION_COUNT = 3;
+
 export default function FAQs({
 	items = defaultFaqs,
 	theme = "blue",
@@ -56,12 +58,12 @@ export default function FAQs({
 		theme === "purple" ? "border-purple-default/30" : "border-border-secondary";
 
 	return (
-		<section className="max-w-[1920px] mx-auto w-full px-5 lg:px-4 flex flex-col gap-10 items-center">
+		<section className="max-w-[1920px] mx-auto w-full flex flex-col gap-10 items-center">
 			<p className={`uppercase font-body text-body-xsm ${labelColor}`}>
 				{label}
 			</p>
 			<div className="flex flex-col gap-10 w-full">
-				{items.map((faq) => (
+				{items.map((faq, i) => (
 					<div
 						key={faq.number}
 						className={`border-t ${borderColor} grid grid-cols-[2rem_1fr] lg:grid-cols-12`}
@@ -75,7 +77,9 @@ export default function FAQs({
 						<div
 							className={`border-l ${borderColor} h-auto lg:h-[200px] flex flex-col justify-between gap-4 lg:gap-0 pt-4 lg:pt-10 pb-6 lg:pb-0 px-5 lg:px-10 lg:col-span-8`}
 						>
-							<p className="font-heading text-h3 tracking-h3 text-dark">
+							<p
+								className={`font-heading text-h3 tracking-h3 ${i < DARKER_QUESTION_COUNT ? "text-darker" : "text-dark"}`}
+							>
 								{faq.question}
 							</p>
 							{faq.answer ? (

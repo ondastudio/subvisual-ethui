@@ -36,7 +36,7 @@ export default function HighlightScroll() {
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Highlight
 						</span>
-						<h2 className="text-h2 tracking-h2 font-body font-normal text-right text-dark max-w-xl">
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-right text-darker max-w-xl">
 							Account impersonation for local development
 						</h2>
 					</div>
@@ -51,7 +51,7 @@ export default function HighlightScroll() {
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Highlight
 						</span>
-						<blockquote className="text-h3 tracking-h3 font-heading font-normal text-right text-dark max-w-xl">
+						<blockquote className="text-h3 tracking-h3 font-heading font-normal text-right text-darker max-w-xl">
 							"It's eye-opening to learn that a surprising number of people in
 							the space are not even aware that impersonation is a possibility."
 						</blockquote>
@@ -60,7 +60,7 @@ export default function HighlightScroll() {
 								<span className="size-1.5 rounded-full bg-dark inline-block" />
 								Miguel Palhas
 							</span>
-							<span className="text-body-md font-heading text-muted pl-4">
+							<span className="text-body-md font-heading text-dark pl-4">
 								Creator / Lead Dev
 							</span>
 						</div>
@@ -110,11 +110,11 @@ export default function HighlightScroll() {
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Highlight
 						</span>
-						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark">
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-darker">
 							Account impersonation for local development
 						</h2>
 					</div>
-					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px]">
+					<div className="space-y-4 text-body-md text-dark leading-[1.25]">
 						<p>
 							ethui's impersonation feature lets you assume any Ethereum address
 							locally and see exactly what that account would see in your dApp.
@@ -136,7 +136,7 @@ export default function HighlightScroll() {
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Highlight
 						</span>
-						<blockquote className="text-h3 tracking-h3 font-heading font-normal text-dark">
+						<blockquote className="text-h3 tracking-h3 font-heading font-normal text-darker">
 							"It's eye-opening to learn that a surprising number of people in
 							the space are not even aware that impersonation is a possibility."
 						</blockquote>
@@ -145,7 +145,7 @@ export default function HighlightScroll() {
 								<span className="size-1.5 rounded-full bg-dark inline-block" />
 								Miguel Palhas
 							</span>
-							<span className="text-body-md font-heading text-muted pl-4">
+							<span className="text-body-md font-heading text-dark pl-4">
 								Creator / Lead Dev
 							</span>
 						</div>

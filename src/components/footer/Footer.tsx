@@ -34,7 +34,7 @@ export default function Footer({ theme = "blue" }: FooterProps) {
 	const bgColor = themeColors[theme];
 	const submitBg = `${themeColors[theme]} ${themeHoverColors[theme]}`;
 	return (
-		<footer className="max-w-[1920px] mx-auto w-full px-5 lg:px-4">
+		<footer className="max-w-[1920px] mx-auto w-full">
 			<div
 				id="footer-blue-box"
 				className={`mt-0.5 ${bgColor} rounded-2xl px-6 lg:px-8 pt-10 lg:pt-15 pb-10 lg:pb-15 overflow-hidden`}

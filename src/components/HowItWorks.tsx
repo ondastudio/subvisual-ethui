@@ -51,10 +51,10 @@ export default function HowItWorks() {
 				</div>
 
 				<div className="flex flex-col gap-6 lg:gap-10 items-center text-center max-w-2xl w-full">
-					<h2 className="text-h2 tracking-h2 font-body font-normal text-dark w-full">
+					<h2 className="text-h2 tracking-h2 font-body font-normal text-darker w-full">
 						How it actually works
 					</h2>
-					<div className="text-body-md text-dark leading-[1.25] space-y-4 md:max-w-[560px]">
+					<div className="text-body-md text-dark leading-[1.25] space-y-4">
 						<p>
 							ethui is built on a Rust backend paired with a React frontend,
 							using Tauri for desktop app support. The business logic is powered
@@ -86,7 +86,7 @@ export default function HowItWorks() {
 							ref={(el) => {
 								cardsRef.current[i] = el;
 							}}
-							className="flex-1 bg-dark rounded-2xl p-6 flex flex-col justify-between min-h-72"
+							className="flex-1 bg-card-dark rounded-2xl p-6 flex flex-col justify-between min-h-72"
 							style={{
 								opacity: 0,
 								transform: "translateY(24px)",
@@ -99,7 +99,7 @@ export default function HowItWorks() {
 							>
 								{card.title}
 							</h3>
-							<p className="text-body-md text-white/80 leading-[1.2] md:max-w-[560px]">
+							<p className="text-body-md text-white leading-[1.2]">
 								{card.body}
 							</p>
 						</div>

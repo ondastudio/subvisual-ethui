@@ -84,10 +84,10 @@ export default function EthLisbonScroll() {
 				</div>
 				<div className="flex items-center justify-center w-full">
 					<div className="flex flex-col gap-10 items-center text-center max-w-[628px]">
-						<h2 className="text-h2 tracking-h2 font-body font-normal text-dark w-full">
+						<h2 className="text-h2 tracking-h2 font-body font-normal text-darker w-full">
 							ETH Lisbon
 						</h2>
-						<div className="text-body-md text-muted space-y-4 leading-5">
+						<div className="text-body-md text-dark space-y-4 leading-5">
 							<p>
 								ETH Lisbon was the first time ethui met the wider community.
 								Workshop, speaker slot, bounties for contributions. Real
@@ -108,7 +108,7 @@ export default function EthLisbonScroll() {
 			<section
 				ref={containerRef}
 				className="hidden lg:block relative px-4 py-4"
-				style={{ height: "200vh" }}
+				style={{ height: "300vh" }}
 			>
 				<div
 					ref={contentBoxRef}
@@ -146,10 +146,10 @@ export default function EthLisbonScroll() {
 					</div>
 					<div className="flex items-center justify-center w-full">
 						<div className="flex flex-col gap-4 items-center text-center max-w-[628px]">
-							<h2 className="text-h2 tracking-h2 font-body font-normal text-dark w-full">
+							<h2 className="text-h2 tracking-h2 font-body font-normal text-darker w-full">
 								ETH Lisbon
 							</h2>
-							<div className="text-body-md text-muted space-y-3 leading-5">
+							<div className="text-body-md text-dark space-y-3 leading-5">
 								<p>
 									ETH Lisbon was the first time ethui met the wider community.
 									Workshop, speaker slot, bounties for contributions. Real

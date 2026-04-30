@@ -30,11 +30,13 @@
 	--font-heading: "Acta", Georgia, serif;
 
 	/* Colors */
-	--color-dark: #111111;
+	--color-darker: #26252c;
+	--color-dark: #403f4c;
+	--color-card-dark: #0a0a0a;
 	--color-white: #ffffff;
 	--color-muted: #717087;
-	--color-blue-default: #2b6cff;
-	--color-blue-hover: #0a46c3;
+	--color-blue-default: #045cfc;
+	--color-blue-hover: #0346cc;
 	--color-blue-25: #f9fcff;
 	--color-purple-default: #8b5cf6;
 	--color-purple-hover: #7c30f7;
