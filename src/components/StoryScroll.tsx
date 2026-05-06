@@ -143,7 +143,7 @@ export default function StoryScroll() {
 					{/* Origin quote video */}
 					<div className="min-h-screen flex items-center px-10 py-8">
 						<VideoPlayer
-							src="https://res.cloudinary.com/dazob8wrm/video/upload/v1777569795/Scratching_our_own_itch_jppogr.mp4"
+							src="https://ethui-assets.subvisual.com/Scratching%20our%20own%20itch.mp4"
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
@@ -235,7 +235,7 @@ export default function StoryScroll() {
 						</div>
 					</div>
 					<VideoPlayer
-						src="https://res.cloudinary.com/dazob8wrm/video/upload/v1777569795/Scratching_our_own_itch_jppogr.mp4"
+						src="https://ethui-assets.subvisual.com/Scratching%20our%20own%20itch.mp4"
 						className="w-full aspect-video rounded-md"
 					/>
 				</div>
