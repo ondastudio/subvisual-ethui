@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import stacksUiImg from "../../assets/images/stacks-ui.webp";
 import VideoPlayer from "../VideoPlayer";
 import { FeatureCard } from "./FeatureCard";
 
@@ -75,6 +76,8 @@ export default function EthuiScrollContinued() {
 	const sentinelRefs = useRef<(HTMLDivElement | null)[]>([]);
 	const productZoneRef = useRef<HTMLDivElement>(null);
 	const resultsZoneRef = useRef<HTMLDivElement>(null);
+	const imgRef = useRef<HTMLDivElement>(null);
+	const mobileImgRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		function onScroll() {
@@ -114,6 +117,28 @@ export default function EthuiScrollContinued() {
 		window.addEventListener("scroll", onScroll, { passive: true });
 		onScroll();
 		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
+
+	useEffect(() => {
+		const refs = [imgRef.current, mobileImgRef.current].filter(
+			(el): el is HTMLDivElement => el !== null,
+		);
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						(entry.target as HTMLElement).style.opacity = "1";
+						(entry.target as HTMLElement).style.transform = "translateY(0)";
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.15 },
+		);
+		for (const el of refs) {
+			observer.observe(el);
+		}
+		return () => observer.disconnect();
 	}, []);
 
 	return (
@@ -169,6 +194,23 @@ export default function EthuiScrollContinued() {
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
 							className="w-full aspect-video rounded-md"
+						/>
+					</div>
+
+					{/* Stacks — image */}
+					<div
+						ref={imgRef}
+						className="flex justify-center px-10 py-8"
+						style={{
+							opacity: 0,
+							transform: "translateY(24px)",
+							transition: "opacity 0.6s ease, transform 0.6s ease",
+						}}
+					>
+						<img
+							src={stacksUiImg.src}
+							alt="ethui Stacks UI"
+							className="rounded-md w-auto max-h-[70vh]"
 						/>
 					</div>
 
@@ -291,6 +333,21 @@ export default function EthuiScrollContinued() {
 						src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
 						className="w-full aspect-video rounded-md"
 					/>
+					<div
+						ref={mobileImgRef}
+						className="flex justify-center"
+						style={{
+							opacity: 0,
+							transform: "translateY(24px)",
+							transition: "opacity 0.6s ease, transform 0.6s ease",
+						}}
+					>
+						<img
+							src={stacksUiImg.src}
+							alt="ethui Stacks UI"
+							className="rounded-md w-auto max-h-[70vh]"
+						/>
+					</div>
 					<div className="flex flex-col gap-6">
 						{productCards.map((card) => (
 							<ScrollRevealFeatureCard

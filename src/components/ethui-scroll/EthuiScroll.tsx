@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import arrowSvg from "../../assets/icons/arrow.svg";
+import explorerUiImg from "../../assets/images/explorer-ui.webp";
 import VideoPlayer from "../VideoPlayer";
 import { EthuiLogo } from "./EthuiLogo";
 import { IronLogo } from "./IronLogo";
@@ -14,6 +16,31 @@ const slides = [
 export default function EthuiScroll() {
 	const { activeSlide, showText, showEthui, sentinelRefs, ironToEthuiRef } =
 		useEthuiScroll();
+
+	const imgRef = useRef<HTMLDivElement>(null);
+	const mobileImgRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const refs = [imgRef.current, mobileImgRef.current].filter(
+			(el): el is HTMLDivElement => el !== null,
+		);
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						(entry.target as HTMLElement).style.opacity = "1";
+						(entry.target as HTMLElement).style.transform = "translateY(0)";
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.15 },
+		);
+		for (const el of refs) {
+			observer.observe(el);
+		}
+		return () => observer.disconnect();
+	}, []);
 
 	return (
 		<section className="bg-white">
@@ -157,6 +184,23 @@ export default function EthuiScroll() {
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
+
+					{/* Slide 3: Block explorer — image */}
+					<div
+						ref={imgRef}
+						className="min-h-screen flex items-center px-10 py-8"
+						style={{
+							opacity: 0,
+							transform: "translateY(24px)",
+							transition: "opacity 0.6s ease, transform 0.6s ease",
+						}}
+					>
+						<img
+							src={explorerUiImg.src}
+							alt="ethui explorer UI"
+							className="w-full aspect-video rounded-md object-cover"
+						/>
+					</div>
 				</div>
 			</div>
 
@@ -246,6 +290,20 @@ export default function EthuiScroll() {
 						src="https://ethui-assets.subvisual.com/Explorer%20walkthrough.mp4"
 						className="w-full aspect-video rounded-md"
 					/>
+					<div
+						ref={mobileImgRef}
+						style={{
+							opacity: 0,
+							transform: "translateY(24px)",
+							transition: "opacity 0.6s ease, transform 0.6s ease",
+						}}
+					>
+						<img
+							src={explorerUiImg.src}
+							alt="ethui explorer UI"
+							className="w-full aspect-video rounded-md object-cover"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>
