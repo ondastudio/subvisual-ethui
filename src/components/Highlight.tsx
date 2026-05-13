@@ -6,6 +6,7 @@ type HighlightProps = {
 	authorName: string;
 	authorRole: string;
 	videoSrc: string;
+	posterSrc?: string;
 };
 
 export default function Highlight({
@@ -13,6 +14,7 @@ export default function Highlight({
 	authorName,
 	authorRole,
 	videoSrc,
+	posterSrc,
 }: HighlightProps) {
 	const sectionRef = useRef<HTMLElement>(null);
 	const parallaxRef = useRef<HTMLDivElement>(null);
@@ -59,7 +61,11 @@ export default function Highlight({
 
 			{/* Mobile: video */}
 			<div className="relative overflow-hidden rounded-2xl w-full aspect-video lg:hidden">
-				<VideoPlayer src={videoSrc} className="w-full h-full" />
+				<VideoPlayer
+					src={videoSrc}
+					poster={posterSrc}
+					className="w-full h-full"
+				/>
 			</div>
 
 			{/* Desktop: quote — left, ~40% wide, sits on top of video */}
@@ -73,7 +79,11 @@ export default function Highlight({
 				className="hidden lg:flex lg:absolute lg:left-[30%] lg:right-0 lg:top-1/2 lg:-translate-y-1/2 flex-row gap-4 items-start"
 			>
 				<div className="relative overflow-hidden rounded-2xl aspect-video flex-1 opacity-40">
-					<VideoPlayer src={videoSrc} className="w-full h-full" />
+					<VideoPlayer
+						src={videoSrc}
+						poster={posterSrc}
+						className="w-full h-full"
+					/>
 				</div>
 				<div className="shrink-0">{attribution}</div>
 			</div>

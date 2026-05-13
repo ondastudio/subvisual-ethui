@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import posterStacksWalkthrough from "../../assets/images/poster-stacks-walkthrough.webp";
 import stacksUiImg from "../../assets/images/stacks-ui.webp";
 import VideoPlayer from "../VideoPlayer";
 import { FeatureCard } from "./FeatureCard";
@@ -193,6 +194,7 @@ export default function EthuiScrollContinued() {
 					<div className="min-h-screen flex items-center px-10 py-8">
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
+							poster={posterStacksWalkthrough.src}
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
@@ -331,6 +333,7 @@ export default function EthuiScrollContinued() {
 					</div>
 					<VideoPlayer
 						src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
+						poster={posterStacksWalkthrough.src}
 						className="w-full aspect-video rounded-md"
 					/>
 					<div

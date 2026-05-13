@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import posterFilesystemWatcher from "../assets/images/poster-filesystem-watcher.webp";
+import posterScratchingOurOwnItch from "../assets/images/poster-scratching-our-own-itch-.webp";
 import VideoPlayer from "./VideoPlayer";
 
 type HeadingSlide = {
@@ -144,6 +146,7 @@ export default function StoryScroll() {
 					<div className="min-h-screen flex items-center px-10 py-8">
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Scratching%20our%20own%20itch.mp4"
+							poster={posterScratchingOurOwnItch.src}
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
@@ -174,6 +177,7 @@ export default function StoryScroll() {
 					<div className="min-h-screen flex items-center px-10 py-8">
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Filesystem%20watcher.mp4"
+							poster={posterFilesystemWatcher.src}
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
@@ -236,6 +240,7 @@ export default function StoryScroll() {
 					</div>
 					<VideoPlayer
 						src="https://ethui-assets.subvisual.com/Scratching%20our%20own%20itch.mp4"
+						poster={posterScratchingOurOwnItch.src}
 						className="w-full aspect-video rounded-md"
 					/>
 				</div>
@@ -266,6 +271,7 @@ export default function StoryScroll() {
 					</div>
 					<VideoPlayer
 						src="https://ethui-assets.subvisual.com/Filesystem%20watcher.mp4"
+						poster={posterFilesystemWatcher.src}
 						className="w-full aspect-video rounded-md"
 					/>
 				</div>

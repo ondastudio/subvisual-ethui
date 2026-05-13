@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import posterDesktopUI from "../assets/images/poster-ethui-desktop-ui.webp";
 import VideoPlayer from "./VideoPlayer";
 
 const cards = [
@@ -151,6 +152,7 @@ export default function HowItWorks() {
 				</div>
 				<VideoPlayer
 					src="https://ethui-assets.subvisual.com/Ethui%20-%20Desktop%20UI%20.mp4"
+					poster={posterDesktopUI.src}
 					className="w-full aspect-video rounded-xl"
 				/>
 			</div>
@@ -215,6 +217,7 @@ export default function HowItWorks() {
 						>
 							<VideoPlayer
 								src="https://ethui-assets.subvisual.com/Ethui%20-%20Desktop%20UI%20.mp4"
+								poster={posterDesktopUI.src}
 								className="w-full max-w-3xl aspect-video rounded-xl"
 							/>
 						</div>

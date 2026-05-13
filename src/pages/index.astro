@@ -1,4 +1,6 @@
 ---
+import posterBlockExplorerForAnvil from "../assets/images/poster-a-local-first-block-explorer-for-anvil.webp";
+import posterHowItActuallyWorks from "../assets/images/poster-how-it-actually-works.webp";
 import EthLisbonScroll from "../components/EthLisbonScroll";
 import EthuiScroll from "../components/ethui-scroll";
 import EthuiScrollContinued from "../components/ethui-scroll/EthuiScrollContinued";
@@ -26,6 +28,7 @@ import Layout from "../layouts/Layout.astro";
         authorName="Miguel Palhas"
         authorRole="Lead Dev"
         videoSrc="https://ethui-assets.subvisual.com/How%20it%20actually%20works.mp4"
+        posterSrc={posterHowItActuallyWorks.src}
       />
       <HowItWorks client:visible />
       <HighlightScroll client:visible />
@@ -37,6 +40,7 @@ import Layout from "../layouts/Layout.astro";
         authorName="Miguel Palhas"
         authorRole="Lead Dev"
         videoSrc="https://ethui-assets.subvisual.com/A%20local-first%20block%20explorer%20for%20Anvil.mp4"
+        posterSrc={posterBlockExplorerForAnvil.src}
       />
       <EthuiScrollContinued client:visible />
     </div>

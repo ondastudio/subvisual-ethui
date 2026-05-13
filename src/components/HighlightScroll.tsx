@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import posterImpersonatorFlow from "../assets/images/poster-impersonator-flow.webp";
 import VideoPlayer from "./VideoPlayer";
 
 export default function HighlightScroll() {
@@ -96,6 +97,7 @@ export default function HighlightScroll() {
 					<div className="min-h-screen flex items-center px-10 py-8">
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Impersonator%20Flow.mp4"
+							poster={posterImpersonatorFlow.src}
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
@@ -152,6 +154,7 @@ export default function HighlightScroll() {
 					</div>
 					<VideoPlayer
 						src="https://ethui-assets.subvisual.com/Impersonator%20Flow.mp4"
+						poster={posterImpersonatorFlow.src}
 						className="w-full aspect-video rounded-md"
 					/>
 				</div>

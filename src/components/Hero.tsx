@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import posterSrc from "../assets/images/poster-video-hero.webp";
 import ethuiMonogramSrc from "../assets/logos/ethui-monogram.svg";
 import { MuteIcon, PauseIcon, PlayIcon, VolumeIcon } from "./VideoIcons";
 
@@ -146,6 +147,7 @@ export default function Hero({ videoSrc = PLACEHOLDER_VIDEO }: HeroProps) {
 							<video
 								ref={videoElRef}
 								src={videoSrc}
+								poster={posterSrc.src}
 								loop
 								muted
 								playsInline

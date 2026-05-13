@@ -12,6 +12,7 @@ import {
 type VideoPlayerProps = {
 	src?: string;
 	className?: string;
+	poster?: string;
 };
 
 const SAMPLE_VIDEO = "https://media.w3.org/2010/05/sintel/trailer.mp4";
@@ -175,6 +176,7 @@ function VideoModal({ src, onClose }: { src: string; onClose: () => void }) {
 export default function VideoPlayer({
 	src = SAMPLE_VIDEO,
 	className = "",
+	poster,
 }: VideoPlayerProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -187,7 +189,8 @@ export default function VideoPlayer({
 				aria-label="Play video"
 			>
 				<video
-					src={`${src}#t=0.001`}
+					src={src}
+					poster={poster}
 					preload="metadata"
 					muted
 					playsInline

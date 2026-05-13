@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import arrowSvg from "../../assets/icons/arrow.svg";
 import explorerUiImg from "../../assets/images/explorer-ui.webp";
+import posterExplorerWalkthrough from "../../assets/images/poster-explorer-walkthrough.webp";
 import VideoPlayer from "../VideoPlayer";
 import { EthuiLogo } from "./EthuiLogo";
 import { IronLogo } from "./IronLogo";
@@ -181,6 +182,7 @@ export default function EthuiScroll() {
 					<div className="min-h-screen flex items-center px-10 py-8">
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Explorer%20walkthrough.mp4"
+							poster={posterExplorerWalkthrough.src}
 							className="w-full aspect-video rounded-md"
 						/>
 					</div>
@@ -288,6 +290,7 @@ export default function EthuiScroll() {
 					</div>
 					<VideoPlayer
 						src="https://ethui-assets.subvisual.com/Explorer%20walkthrough.mp4"
+						poster={posterExplorerWalkthrough.src}
 						className="w-full aspect-video rounded-md"
 					/>
 					<div
