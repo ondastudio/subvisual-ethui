@@ -73,8 +73,8 @@ export default function HowItWorks() {
 		Math.max(0, Math.min(1, (t - s) / (e - s)));
 	const ease = (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
 
-	const expandP = ease(p01(progress, 0.0, 0.65));
-	const isAtTop = progress >= 0.5;
+	const expandP = ease(p01(progress, 0.0, 0.55));
+	const isAtTop = progress >= 0.7;
 
 	useEffect(() => {
 		if (isAtTop) {
@@ -161,7 +161,7 @@ export default function HowItWorks() {
 			<div
 				ref={scrollRef}
 				className="hidden lg:block relative px-4 py-4"
-				style={{ height: "200vh" }}
+				style={{ height: "300vh" }}
 			>
 				<div className="sticky top-4 h-[calc(100vh-9rem)] flex items-start">
 					<div
@@ -169,9 +169,24 @@ export default function HowItWorks() {
 						className="bg-surface-page rounded-2xl w-full relative overflow-hidden"
 						style={boxH != null ? { height: boxH } : undefined}
 					>
-						{/* Cards — in normal flow so the box gets natural height */}
+						{/* Hidden spacer — keeps the box at its natural height for measurement */}
 						<div
-							className="flex items-center justify-center py-10 px-6 lg:py-36 lg:px-10"
+							className="py-10 px-6 lg:py-36 lg:px-10 invisible pointer-events-none"
+							aria-hidden="true"
+						>
+							<div className="flex flex-col lg:flex-row gap-6 w-full max-w-5xl">
+								{cards.map((_, i) => (
+									<div
+										key={i}
+										className="flex-1 rounded-2xl p-6 flex flex-col justify-between min-h-72"
+									/>
+								))}
+							</div>
+						</div>
+
+						{/* Cards — absolutely centered so they stay vertically centered as the box expands */}
+						<div
+							className="absolute inset-0 flex items-center justify-center py-10 px-6 lg:py-36 lg:px-10"
 							style={{
 								opacity: showCards ? 1 : 0,
 								pointerEvents: showCards ? "auto" : "none",
@@ -218,7 +233,7 @@ export default function HowItWorks() {
 							<VideoPlayer
 								src="https://ethui-assets.subvisual.com/Ethui%20-%20Desktop%20UI%20.mp4"
 								poster={posterDesktopUI.src}
-								className="w-full max-w-3xl aspect-video rounded-xl"
+								className="w-full max-w-5xl aspect-video rounded-xl"
 							/>
 						</div>
 					</div>

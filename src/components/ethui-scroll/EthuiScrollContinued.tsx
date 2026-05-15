@@ -93,7 +93,7 @@ export default function EthuiScrollContinued() {
 			if (productZoneRef.current) {
 				const rect = productZoneRef.current.getBoundingClientRect();
 				const scrolledPast = Math.max(0, 16 - rect.top);
-				const extraPerCard = window.innerHeight * 0.4;
+				const extraPerCard = window.innerHeight * 0.65;
 				setProductNumVisible(
 					Math.min(
 						productCards.length,
@@ -105,7 +105,7 @@ export default function EthuiScrollContinued() {
 			if (resultsZoneRef.current) {
 				const rect = resultsZoneRef.current.getBoundingClientRect();
 				const scrolledPast = Math.max(0, 16 - rect.top);
-				const extraPerCard = window.innerHeight * 0.4;
+				const extraPerCard = window.innerHeight * 0.65;
 				setResultsNumVisible(
 					Math.min(
 						resultsCards.length,
@@ -221,7 +221,7 @@ export default function EthuiScrollContinued() {
 						ref={productZoneRef}
 						className="relative my-4"
 						style={{
-							height: `calc(100vh + ${productCards.length * 40}vh - 2rem)`,
+							height: `calc(100vh + ${productCards.length * 65}vh - 2rem)`,
 						}}
 					>
 						<div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col justify-center gap-4 px-10 overflow-hidden">
@@ -287,7 +287,7 @@ export default function EthuiScrollContinued() {
 						ref={resultsZoneRef}
 						className="relative my-4"
 						style={{
-							height: `calc(100vh + ${resultsCards.length * 40}vh - 2rem)`,
+							height: `calc(100vh + ${resultsCards.length * 65}vh - 2rem)`,
 						}}
 					>
 						<div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col justify-center gap-4 px-10 overflow-hidden">

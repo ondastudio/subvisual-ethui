@@ -124,7 +124,7 @@ export default function EthLisbonScroll() {
 			<section
 				ref={containerRef}
 				className="hidden lg:block relative px-4 py-4"
-				style={{ height: "700vh" }}
+				style={{ height: "400vh" }}
 			>
 				<div
 					ref={contentBoxRef}
