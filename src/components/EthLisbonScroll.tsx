@@ -2,10 +2,23 @@ import { useEffect, useRef, useState } from "react";
 import img1 from "../assets/images/eth-lisbon-1.webp";
 import img2 from "../assets/images/eth-lisbon-2.webp";
 import img3 from "../assets/images/eth-lisbon-3.webp";
+import img4 from "../assets/images/eth-lisbon-4.webp";
+import img5 from "../assets/images/eth-lisbon-5.webp";
+import img6 from "../assets/images/eth-lisbon-6.webp";
+import img7 from "../assets/images/eth-lisbon-7.webp";
 
-const IMAGES = [img1.src, img2.src, img3.src];
-const IMG_W = 500;
-const IMG_H = 375;
+const IMAGES = [
+	img1.src,
+	img2.src,
+	img3.src,
+	img4.src,
+	img5.src,
+	img6.src,
+	img7.src,
+];
+const NUM_IMAGES = IMAGES.length;
+const IMG_W = 360;
+const IMG_H = 270;
 const PAD = 40;
 
 export default function EthLisbonScroll() {
@@ -41,7 +54,7 @@ export default function EthLisbonScroll() {
 				0,
 				Math.min(1, -el.getBoundingClientRect().top / total),
 			);
-			setStep(progress < 0.33 ? 0 : progress < 0.66 ? 1 : 2);
+			setStep(Math.min(NUM_IMAGES - 1, Math.floor(progress * NUM_IMAGES)));
 		}
 		window.addEventListener("scroll", onScroll, { passive: true });
 		onScroll();
@@ -67,11 +80,14 @@ export default function EthLisbonScroll() {
 	}, []);
 
 	const { w, h } = boxSize;
-	const transforms = [
-		`translate(${PAD}px, ${PAD}px)`,
-		`translate(${Math.max(0, (w - IMG_W) / 2)}px, ${Math.max(0, (h - IMG_H) / 2)}px)`,
-		`translate(${Math.max(0, w - IMG_W - PAD)}px, ${Math.max(0, h - IMG_H - PAD)}px)`,
-	];
+	const maxX = Math.max(0, w - IMG_W - PAD);
+	const maxY = Math.max(0, h - IMG_H - PAD);
+	const transforms = Array.from({ length: NUM_IMAGES }, (_, i) => {
+		const t = i / (NUM_IMAGES - 1);
+		const x = PAD + t * (maxX - PAD);
+		const y = PAD + t * (maxY - PAD);
+		return `translate(${x}px, ${y}px)`;
+	});
 
 	return (
 		<>
@@ -108,7 +124,7 @@ export default function EthLisbonScroll() {
 			<section
 				ref={containerRef}
 				className="hidden lg:block relative px-4 py-4"
-				style={{ height: "300vh" }}
+				style={{ height: "700vh" }}
 			>
 				<div
 					ref={contentBoxRef}
