@@ -96,14 +96,14 @@ export default function HowItWorks() {
 	return (
 		<section className="bg-white py-4">
 			{/* Header */}
-			<div className="flex flex-col items-center gap-10 pb-10 lg:pb-16 pt-3 px-4 md:px-[10vw] lg:px-4">
-				<div className="self-start">
-					<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
+			<div className="flex flex-col items-center gap-10 pb-10 lg:pb-16 pt-3">
+				<div className="max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-4 md:px-0 lg:px-20">
+					<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none inline-block">
 						Technical
 					</span>
 				</div>
 
-				<div className="flex flex-col gap-6 lg:gap-10 items-center text-center max-w-2xl w-full">
+				<div className="flex flex-col gap-6 lg:gap-10 items-center text-center max-w-2xl w-full px-4 md:px-[10vw] lg:px-4">
 					<h2 className="text-h2 tracking-h2 font-body font-normal text-darker w-full">
 						How it actually works
 					</h2>

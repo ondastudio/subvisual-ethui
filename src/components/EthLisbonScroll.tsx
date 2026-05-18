@@ -92,13 +92,15 @@ export default function EthLisbonScroll() {
 	return (
 		<>
 			{/* Desktop: text scrolls normally, only images stick */}
-			<div className="hidden lg:flex bg-white rounded-2xl px-8 pt-8 pb-16 mx-4 mt-4 flex-col gap-10 items-start">
-				<div className="bg-dark/10 rounded-2xl px-6 py-4">
-					<span className="text-body-md text-dark leading-none tracking-tight">
-						Milestone
-					</span>
+			<div className="hidden lg:flex flex-col mt-4 gap-6">
+				<div className="max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-4 md:px-0 lg:px-20">
+					<div className="bg-dark/10 rounded-2xl px-6 py-4 inline-block">
+						<span className="text-body-md text-dark leading-none tracking-tight">
+							Milestone
+						</span>
+					</div>
 				</div>
-				<div className="flex items-center justify-center w-full">
+				<div className="bg-white rounded-2xl px-8 pb-16 mx-4 flex items-center justify-center">
 					<div className="flex flex-col gap-10 items-center text-center max-w-[628px]">
 						<h2 className="text-h2 tracking-h2 font-body font-normal text-darker w-full">
 							ETH Lisbon
