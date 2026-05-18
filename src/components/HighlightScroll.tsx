@@ -26,7 +26,7 @@ export default function HighlightScroll() {
 			{/* Desktop layout */}
 			<div className="hidden lg:flex py-4 gap-2 items-start">
 				{/* Left — sticky, cross-fades between slides */}
-				<div className="sticky top-4 w-[calc(50%-4px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
+				<div className="sticky top-4 ml-4 w-[calc(50%-20px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
 					{/* Slide 1: heading */}
 					<div
 						className={`absolute right-0 flex flex-col gap-6 items-end px-10 w-full transition-opacity duration-500 ease-in-out ${
@@ -98,17 +98,17 @@ export default function HighlightScroll() {
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Impersonator%20Flow.mp4"
 							poster={posterImpersonatorFlow.src}
-							className="w-full aspect-video rounded-md"
+							className="w-full max-w-4xl aspect-video rounded-md"
 						/>
 					</div>
 				</div>
 			</div>
 
 			{/* Mobile layout */}
-			<div className="lg:hidden flex flex-col">
+			<div className="lg:hidden flex flex-col px-4 md:px-[10vw]">
 				{/* Highlight text section */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Highlight
 						</span>
@@ -134,7 +134,7 @@ export default function HighlightScroll() {
 
 				{/* Highlight quote + video section */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Highlight
 						</span>

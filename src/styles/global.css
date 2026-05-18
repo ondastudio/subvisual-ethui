@@ -36,13 +36,17 @@
 	--color-white: #ffffff;
 	--color-muted: #717087;
 	--color-blue-default: #045cfc;
-	--color-blue-hover: #0346cc;
+	--color-blue-hover: #0a46c3;
 	--color-blue-25: #f9fcff;
-	--color-purple-default: #8b5cf6;
+	--color-blue-50: #edf8ff;
+	--color-purple-default: #9563ff;
+	--color-purple-light: #a685ff;
 	--color-purple-hover: #7c30f7;
-	--color-indigo-default: #4f46e5;
+	--color-purple-border: #ece8ff;
+	--color-purple-25: #fafaff;
+	--color-indigo-default: #2421ab;
 	--color-indigo-hover: #24248b;
-	--color-border-secondary: #e5e7eb;
+	--color-border-secondary: #d6edff;
 	--color-surface-page: #f7f7f8;
 	--color-border-inverted: #eeedf1;
 
@@ -72,7 +76,8 @@
 	--tracking-body-lg: -0.025rem;
 
 	--text-body-md: 1rem;
-	--leading-body-md: 1.5rem;
+	--text-body-md--line-height: 1.2rem;
+	--leading-body-md: 1.2rem;
 
 	--text-body-sm: 0.875rem;
 	--text-body-sm--line-height: 1.2;
@@ -88,8 +93,8 @@
 	--animate-slide-up-in: slide-up-in 1s ease-out both;
 }
 
-/* Desktop type scale overrides */
-@media (min-width: 1024px) {
+/* Tablet+ type scale overrides */
+@media (min-width: 768px) {
 	:root {
 		--text-h1: 4rem;
 		--text-h1--line-height: 1;
@@ -117,8 +122,6 @@
 	:root {
 		--text-body-lg: 1.375rem;
 		--text-body-lg--line-height: 1.75rem;
-
-		--text-body-md: 1.0625rem;
 	}
 }
 
@@ -126,8 +129,6 @@
 	:root {
 		--text-body-lg: 1.5rem;
 		--text-body-lg--line-height: 1.875rem;
-
-		--text-body-md: 1.125rem;
 	}
 }
 

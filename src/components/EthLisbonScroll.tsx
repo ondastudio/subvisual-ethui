@@ -92,7 +92,7 @@ export default function EthLisbonScroll() {
 	return (
 		<>
 			{/* Desktop: text scrolls normally, only images stick */}
-			<div className="hidden lg:flex bg-white rounded-2xl px-8 pt-8 pb-16 flex-col gap-10 items-start">
+			<div className="hidden lg:flex bg-white rounded-2xl px-8 pt-8 pb-16 mx-4 mt-4 flex-col gap-10 items-start">
 				<div className="bg-dark/10 rounded-2xl px-6 py-4">
 					<span className="text-body-md text-dark leading-none tracking-tight">
 						Milestone
@@ -153,7 +153,7 @@ export default function EthLisbonScroll() {
 			</section>
 
 			{/* Mobile: stacked images with fade-in on scroll */}
-			<section className="lg:hidden">
+			<section className="lg:hidden px-4 md:px-[10vw]">
 				<div className="bg-white rounded-2xl px-4 pt-4 pb-6 flex flex-col gap-10 items-start">
 					<div className="bg-dark/10 rounded-2xl px-6 py-4">
 						<span className="text-body-md text-dark leading-none tracking-tight">

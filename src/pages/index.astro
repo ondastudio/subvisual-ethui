@@ -20,8 +20,9 @@ import Layout from "../layouts/Layout.astro";
     <Hero client:load />
     <div id="hero-sentinel" class="h-px w-full" />
 
-    <div class="max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-5 lg:px-20">
-      <StoryScroll client:visible />
+    <StoryScroll client:visible />
+
+    <div class="max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-4 md:px-0 lg:px-20">
       <Highlight
         client:visible
         quote={"\"All of those workflows we usually did relying on third-party tools, we're now able to do them fully locally and share them with the team.\""}
@@ -30,10 +31,15 @@ import Layout from "../layouts/Layout.astro";
         videoSrc="https://ethui-assets.subvisual.com/How%20it%20actually%20works.mp4"
         posterSrc={posterHowItActuallyWorks.src}
       />
-      <HowItWorks client:visible />
-      <HighlightScroll client:visible />
-      <EthLisbonScroll client:visible />
-      <EthuiScroll client:visible />
+    </div>
+
+    <HowItWorks client:visible />
+
+    <HighlightScroll client:visible />
+    <EthLisbonScroll client:visible />
+    <EthuiScroll client:visible />
+
+    <div class="max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-4 md:px-0 lg:px-20">
       <Highlight
         client:visible
         quote={"\"This wallet is not just a browser extension but a desktop application, which makes it more powerful.\""}
@@ -42,18 +48,17 @@ import Layout from "../layouts/Layout.astro";
         videoSrc="https://ethui-assets.subvisual.com/A%20local-first%20block%20explorer%20for%20Anvil.mp4"
         posterSrc={posterBlockExplorerForAnvil.src}
       />
-      <EthuiScrollContinued client:visible />
     </div>
 
-    <div class="pt-30 lg:pt-56 max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-5 lg:px-20">
-      <FAQs client:visible />
+    <EthuiScrollContinued client:visible />
+
+    <div class="py-9 lg:py-20">
+      <FAQs client:visible label="Common questions" />
     </div>
 
-    <div class="pt-30 lg:pt-56 pb-10 lg:pb-20">
-      <div class="max-w-[1920px] md:max-w-[80vw] xl:max-w-[88vw] 2xl:max-w-[92vw] w-full mx-auto px-5 lg:px-20">
-        <div id="footer-navbar-dock" class="max-w-7xl mx-auto w-full px-5 lg:px-4" />
-        <Footer client:load />
-      </div>
+    <div class="pt-30 lg:pt-40 pb-10 lg:pb-20">
+      <div id="footer-navbar-dock" class="max-w-7xl mx-auto w-full px-5 lg:px-4" />
+      <Footer client:load />
     </div>
   </main>
 

@@ -96,7 +96,7 @@ export default function HowItWorks() {
 	return (
 		<section className="bg-white py-4">
 			{/* Header */}
-			<div className="flex flex-col items-center gap-10 pb-10 lg:pb-16 pt-3">
+			<div className="flex flex-col items-center gap-10 pb-10 lg:pb-16 pt-3 px-4 md:px-[10vw] lg:px-4">
 				<div className="self-start">
 					<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 						Technical
@@ -131,7 +131,7 @@ export default function HowItWorks() {
 			</div>
 
 			{/* Mobile: cards stacked + video */}
-			<div className="lg:hidden flex flex-col gap-4 px-4 pb-4">
+			<div className="lg:hidden flex flex-col gap-4 px-4 md:px-[10vw] pb-4">
 				<div className="flex flex-col gap-4">
 					{cards.map((card, i) => (
 						<div
@@ -233,7 +233,7 @@ export default function HowItWorks() {
 							<VideoPlayer
 								src="https://ethui-assets.subvisual.com/Ethui%20-%20Desktop%20UI%20.mp4"
 								poster={posterDesktopUI.src}
-								className="w-full max-w-5xl aspect-video rounded-xl"
+								className="h-[80%] aspect-video max-w-[90%] rounded-xl"
 							/>
 						</div>
 					</div>

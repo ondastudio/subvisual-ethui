@@ -147,7 +147,7 @@ export default function EthuiScrollContinued() {
 			{/* Desktop layout */}
 			<div className="hidden lg:flex py-4 gap-2 items-start">
 				{/* Left — sticky, cross-fades between slides */}
-				<div className="sticky top-4 w-[calc(50%-4px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
+				<div className="sticky top-4 ml-4 w-[calc(50%-20px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
 					{slides.map((slide, i) => (
 						<div
 							key={i}
@@ -195,14 +195,14 @@ export default function EthuiScrollContinued() {
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
 							poster={posterStacksWalkthrough.src}
-							className="w-full aspect-video rounded-md"
+							className="w-full max-w-4xl aspect-video rounded-md"
 						/>
 					</div>
 
 					{/* Stacks — image */}
 					<div
 						ref={imgRef}
-						className="flex justify-center px-10 py-8"
+						className="flex justify-start px-10 py-8"
 						style={{
 							opacity: 0,
 							transform: "translateY(24px)",
@@ -212,7 +212,7 @@ export default function EthuiScrollContinued() {
 						<img
 							src={stacksUiImg.src}
 							alt="ethui Stacks UI"
-							className="rounded-md w-auto max-h-[70vh]"
+							className="rounded-md w-auto max-w-4xl max-h-[70vh]"
 						/>
 					</div>
 
@@ -224,15 +224,17 @@ export default function EthuiScrollContinued() {
 							height: `calc(100vh + ${productCards.length * 65}vh - 2rem)`,
 						}}
 					>
-						<div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col justify-center gap-4 px-10 overflow-hidden">
-							{productCards.map((card, i) => (
-								<FeatureCard
-									key={card.title}
-									title={card.title}
-									body={card.body}
-									visible={productNumVisible > i}
-								/>
-							))}
+						<div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col justify-center px-10 overflow-hidden">
+							<div className="flex flex-col gap-4 max-w-4xl w-full">
+								{productCards.map((card, i) => (
+									<FeatureCard
+										key={card.title}
+										title={card.title}
+										body={card.body}
+										visible={productNumVisible > i}
+									/>
+								))}
+							</div>
 						</div>
 					</div>
 
@@ -290,25 +292,27 @@ export default function EthuiScrollContinued() {
 							height: `calc(100vh + ${resultsCards.length * 65}vh - 2rem)`,
 						}}
 					>
-						<div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col justify-center gap-4 px-10 overflow-hidden">
-							{resultsCards.map((card, i) => (
-								<FeatureCard
-									key={card.title}
-									title={card.title}
-									body={card.body}
-									visible={resultsNumVisible > i}
-								/>
-							))}
+						<div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col justify-center px-10 overflow-hidden">
+							<div className="flex flex-col gap-4 max-w-4xl w-full">
+								{resultsCards.map((card, i) => (
+									<FeatureCard
+										key={card.title}
+										title={card.title}
+										body={card.body}
+										visible={resultsNumVisible > i}
+									/>
+								))}
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			{/* Mobile layout */}
-			<div className="lg:hidden flex flex-col">
+			<div className="lg:hidden flex flex-col px-4 md:px-[10vw]">
 				{/* Stacks */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Product
 						</span>
@@ -316,7 +320,7 @@ export default function EthuiScrollContinued() {
 							One-click Ethereum testnets with Stacks
 						</h2>
 					</div>
-					<div className="space-y-4 text-body-md text-dark leading-[1.25]">
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px] md:mx-auto">
 						<p>
 							ethui Stacks is a self-hosted tool for creating persistent,
 							cloud-based Anvil testnets in one click. Every project at
@@ -331,11 +335,13 @@ export default function EthuiScrollContinued() {
 							snapshots.
 						</p>
 					</div>
-					<VideoPlayer
-						src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
-						poster={posterStacksWalkthrough.src}
-						className="w-full aspect-video rounded-md"
-					/>
+					<div className="md:max-w-[560px] md:mx-auto w-full">
+						<VideoPlayer
+							src="https://ethui-assets.subvisual.com/Stacks%20walkthrough.mp4"
+							poster={posterStacksWalkthrough.src}
+							className="w-full aspect-video rounded-md"
+						/>
+					</div>
 					<div
 						ref={mobileImgRef}
 						className="flex justify-center"
@@ -351,7 +357,7 @@ export default function EthuiScrollContinued() {
 							className="rounded-md w-auto max-h-[70vh]"
 						/>
 					</div>
-					<div className="flex flex-col gap-6">
+					<div className="flex flex-col gap-6 md:max-w-[560px] md:mx-auto">
 						{productCards.map((card) => (
 							<ScrollRevealFeatureCard
 								key={card.title}
@@ -364,7 +370,7 @@ export default function EthuiScrollContinued() {
 
 				{/* Business */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Business
 						</span>
@@ -372,7 +378,7 @@ export default function EthuiScrollContinued() {
 							What this says about Subvisual
 						</h2>
 					</div>
-					<div className="space-y-4 text-body-md text-dark leading-[1.25]">
+					<div className="space-y-4 text-body-md text-dark leading-[1.25] md:max-w-[560px] md:mx-auto">
 						<p>
 							ethui isn't a client project. Nobody asked us to build it. It
 							exists because our lead developer hit a wall and decided to fix it
@@ -384,7 +390,7 @@ export default function EthuiScrollContinued() {
 							to Brazos. Good developer tools should be shared.
 						</p>
 					</div>
-					<div className="flex flex-col gap-4">
+					<div className="flex flex-col gap-4 md:max-w-[560px] md:mx-auto">
 						<blockquote className="text-h3 tracking-h3 font-heading font-normal text-darker">
 							"This is the best thing I've ever built."
 						</blockquote>
@@ -402,7 +408,7 @@ export default function EthuiScrollContinued() {
 
 				{/* Results */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Results
 						</span>
@@ -410,7 +416,7 @@ export default function EthuiScrollContinued() {
 							What this says about Subvisual
 						</h2>
 					</div>
-					<div className="flex flex-col gap-6">
+					<div className="flex flex-col gap-6 md:max-w-[560px] md:mx-auto">
 						{resultsCards.map((card) => (
 							<ScrollRevealFeatureCard
 								key={card.title}

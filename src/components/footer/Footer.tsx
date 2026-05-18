@@ -34,7 +34,7 @@ export default function Footer({ theme = "blue" }: FooterProps) {
 	const bgColor = themeColors[theme];
 	const submitBg = `${themeColors[theme]} ${themeHoverColors[theme]}`;
 	return (
-		<footer className="max-w-[1920px] mx-auto w-full">
+		<footer className="max-w-7xl mx-auto w-full px-5 lg:px-4">
 			<div
 				id="footer-blue-box"
 				className={`mt-0.5 ${bgColor} rounded-2xl px-6 lg:px-8 pt-10 lg:pt-15 pb-10 lg:pb-15 overflow-hidden`}
@@ -43,7 +43,8 @@ export default function Footer({ theme = "blue" }: FooterProps) {
 					{/* Left: tagline */}
 					<div className="lg:w-110.25 shrink-0 flex flex-col">
 						<p className="font-body text-h3 leading-h3 tracking-h3 text-white">
-							We build products and the companies behind them.
+							We build products —<br />
+							and the companies behind them.
 						</p>
 						<div className="hidden lg:block mt-auto">
 							<p className="font-body text-body-md leading-body-md text-white">

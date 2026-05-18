@@ -52,7 +52,7 @@ export default function Highlight({
 			className="bg-white py-18 flex flex-col gap-8 lg:min-h-screen lg:py-0 lg:relative lg:flex-row lg:items-center"
 		>
 			{/* Mobile: quote + attribution in a surface card */}
-			<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 w-full lg:hidden">
+			<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 lg:hidden">
 				<blockquote className="font-heading text-h2 tracking-h2 text-darker">
 					{quote}
 				</blockquote>

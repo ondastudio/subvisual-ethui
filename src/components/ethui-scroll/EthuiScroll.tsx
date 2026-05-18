@@ -48,7 +48,7 @@ export default function EthuiScroll() {
 			{/* Desktop layout */}
 			<div className="hidden lg:flex py-4 gap-2 items-start">
 				{/* Left — sticky, cross-fades between slides */}
-				<div className="sticky top-4 w-[calc(50%-4px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
+				<div className="sticky top-4 ml-4 w-[calc(50%-20px)] h-[calc(100vh-2rem)] my-4 bg-surface-page rounded-2xl overflow-hidden flex flex-col items-end justify-center relative">
 					{slides.map((slide, i) => (
 						<div
 							key={i}
@@ -183,7 +183,7 @@ export default function EthuiScroll() {
 						<VideoPlayer
 							src="https://ethui-assets.subvisual.com/Explorer%20walkthrough.mp4"
 							poster={posterExplorerWalkthrough.src}
-							className="w-full aspect-video rounded-md"
+							className="w-full max-w-4xl aspect-video rounded-md"
 						/>
 					</div>
 
@@ -200,17 +200,17 @@ export default function EthuiScroll() {
 						<img
 							src={explorerUiImg.src}
 							alt="ethui explorer UI"
-							className="w-full aspect-video rounded-md object-cover"
+							className="w-full max-w-4xl aspect-video rounded-md object-cover"
 						/>
 					</div>
 				</div>
 			</div>
 
 			{/* Mobile layout */}
-			<div className="lg:hidden flex flex-col">
+			<div className="lg:hidden flex flex-col px-4 md:px-[10vw]">
 				{/* Iron → ethui */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Milestone
 						</span>
@@ -240,7 +240,7 @@ export default function EthuiScroll() {
 
 				{/* Ripping out the framework */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Design
 						</span>
@@ -266,7 +266,7 @@ export default function EthuiScroll() {
 
 				{/* Block explorer */}
 				<div className="flex flex-col gap-8 py-18">
-					<div className="bg-surface-page rounded-2xl px-6 py-10 flex flex-col gap-6 items-start">
+					<div className="bg-surface-page rounded-2xl md:-mx-[calc(10vw_-_1rem)] px-6 md:px-[calc(10vw_+_0.5rem)] py-10 flex flex-col gap-6 items-start">
 						<span className="bg-dark/10 rounded-2xl px-6 py-4 text-body-md text-dark leading-none">
 							Product
 						</span>
