@@ -17,9 +17,7 @@ const IMAGES = [
 	img7.src,
 ];
 const NUM_IMAGES = IMAGES.length;
-const IMG_W = 360;
-const IMG_H = 270;
-const PAD = 40;
+const PAD = 24;
 
 export default function EthLisbonScroll() {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -80,6 +78,8 @@ export default function EthLisbonScroll() {
 	}, []);
 
 	const { w, h } = boxSize;
+	const IMG_W = w > 0 ? Math.max(340, Math.round(w * 0.2)) : 340;
+	const IMG_H = Math.round(IMG_W * 0.75);
 	const maxX = Math.max(0, w - IMG_W - PAD);
 	const maxY = Math.max(0, h - IMG_H - PAD);
 	const transforms = Array.from({ length: NUM_IMAGES }, (_, i) => {
